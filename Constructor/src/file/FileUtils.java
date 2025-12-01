@@ -7,60 +7,52 @@ public class FileUtils {
 
     public void readFile() {
         File file = new File("output.txt");
-        Scanner scanner = null;
-try {
-    scanner = new Scanner(file);
+
+try (Scanner scanner = new Scanner(file)) {
+
+        while (scanner.hasNextLine()) {
+            String output = scanner.nextLine();
+            System.out.println(output);
+    }
 } catch (FileNotFoundException fileNotFoundException) {
     System.out.println("file isn't found");
 }
 
-if(scanner != null) {
-    while (scanner.hasNextLine()) {
-        String output = scanner.nextLine();
-        System.out.println(output);
-    }
-}
 
-        scanner.close();
     }
 
 
     public void printInFile() {
 
         File file = new File("output.txt");
-        PrintStream out = null;
 
-        try {
+        try (PrintStream out = new PrintStream(new FileOutputStream(file)); Scanner scanner = new Scanner(System.in)){
             //Create a file if it doesn't exist
             if(!file.exists()) {
                 file.createNewFile();
             }
-           out = new PrintStream(new FileOutputStream(file));
+
+
+                System.out.println("Enter text for file");
+
+                while (scanner.hasNextLine()) {
+                    String input = scanner.nextLine();
+                    if (!"exit".equalsIgnoreCase(input)) {
+                        out.println(input);
+                    }
+
+                    if ("exit".equalsIgnoreCase(input)) {
+                        break;
+                    }
+                }
+
+
         } catch (IOException exception) {
             System.out.println("Mistake with files " + exception.getMessage());
         }
 
 
-if(out != null) {
 
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Enter text for file");
-
-    while (scanner.hasNextLine()) {
-        String input = scanner.nextLine();
-        if (!"exit".equalsIgnoreCase(input)) {
-            out.println(input);
-        }
-
-        if ("exit".equalsIgnoreCase(input)) {
-            break;
-        }
-    }
-
-    scanner.close();
-    out.close();
-}
 
 
     }
