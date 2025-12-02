@@ -10,21 +10,41 @@ import exception.MyArrayException;
 import file.FileUtils;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        FileUtils fileUtils = new FileUtils();
-        fileUtils.readFile();
+        LinkedList linkedList = new LinkedList();
+
+//        linkedList.push(-1);
+//        linkedList.push(false);
+//        linkedList.push(true);
+//        linkedList.push("hello");
+//        linkedList.push(1.9);
+//
+//
+//        System.out.println(linkedList.pop());
+//        System.out.println(linkedList);
 
 
+
+//        Scanner scanner = new Scanner(System.in);
+//        String value = scanner.nextLine();
+//        linkedList.add(value);
+try {
+    System.out.println(linkedList.pop());
+} catch (NoSuchElementException exception) {
+    System.out.println("empty");
+}
+
+
+//        for (Object obj : linkedList) {
+//            System.out.println(obj);
+//        }
 
     }
 }
-
 
 
 
@@ -38,12 +58,9 @@ public class Main {
         ball.setBrand("Adidas");
 System.out.println(ball);*/
 
-        //Panda panda = new Panda("Rex", (byte) 20);
+//Panda panda = new Panda("Rex", (byte) 20);
 
 //final Integer intVal;
-
-
-
 
 
 //        BrownBear bearOne = new BrownBear();
@@ -55,9 +72,6 @@ System.out.println(ball);*/
 //        bearTwo.setColour("purple");
 //System.out.println(brownBearTwo.hashCode());
 //        System.out.println(bearOne.equals(bearTwo));
-
-
-
 
 
 //        Panda panda = new Panda();
